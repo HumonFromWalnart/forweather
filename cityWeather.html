@@ -11,6 +11,7 @@
 <body>
     <div id="weather"></div>
     <button onclick="showTemp()" style="width:100px; height: 30px;">Get Weather</button>
+    <!-- <input id="cityInput" ondrop="showTemp()"> -->
     <style>
         #weather {
             width: 150px;
@@ -26,7 +27,7 @@
             const weather = info.main.temp;
             document.getElementById("weather").innerHTML = `${city} ${weather}C`;
             console.log(info.main.temp);
-            onsole.log(info);
+            console.log(info);
         };
         showTemp("San Francisco");
     </script>
