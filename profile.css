@@ -1,0 +1,338 @@
+body {
+    margin: 0px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container {
+    width: 1529px;
+    height: 982px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    width: 801px;
+    height: 257px;
+    left: 80px;
+    top: 221px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 87px;
+    line-height: 90px;
+    color: #000000;
+    margin-top: 50px;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+}
+
+.my-pic {
+    width: 490px;
+    height: 576.18px;
+}
+
+.my-img {
+    width: 490px;
+    height: 576.18px;
+    border: 5px solid black;
+    border-bottom-left-radius: 45%;
+    box-shadow: 14px -15px 0px -6px rgba(0, 0, 0, 1);
+}
+
+.description {
+    margin-top: 40px;
+    width: 762px;
+    height: 187px;
+    left: 80px;
+    top: 518px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 45px;
+    color: #6B6868;
+}
+
+.hire-here {
+    display: flex;
+    font-size: 32px;
+    margin-top: 40px;
+}
+
+.hire-me {
+    width: 225px;
+    height: 84px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-projects {
+    width: 378px;
+    height: 84px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    color: white;
+    background-color: black;
+}
+
+.skill-container {
+    width: 1529px;
+    height: 816px;
+    background-color: #08B7AC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-title {
+    padding-top: 70px;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 51.3611px;
+    line-height: 78px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.skill-description {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23.1125px;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 21px;
+    color: #FFFFFF;
+}
+
+.skill-description-bottom {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23.1125px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.skills {
+    width: 1529px;
+    height: 816px;
+    background-color: #08B7AC;
+}
+
+.program-icon {
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 80px;
+}
+
+.icon-html {
+    width: 69.91px;
+    height: 69.29px;
+}
+
+.html-container {
+    width: 117.02px;
+    height: 109.8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program {
+    width: 200px;
+    height: 118.94px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-program {
+    width: 120px;
+    height: 30.43px;
+    font-family: 'Be Vietnam';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.4281px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.language {
+    width: 230.6px;
+    height: 147.5px;
+    margin-top: 30px;
+}
+
+.type {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30.8167px;
+    line-height: 47px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.type-special {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30.8167px;
+    line-height: 47px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 300px;
+    color: #FFFFFF;
+    margin-left: -30px;
+}
+
+.lore {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20.5444px;
+    line-height: 31px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+.polygon {
+    position: absolute;
+}
+
+.program-special {
+    width: 200px;
+    height: 118.94px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+* {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.project-container {
+    width: 1529px;
+    height: 1859px;
+
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project {
+    display: flex;
+}
+
+.memes {
+    height: 380px;
+    width: 415px;
+    border: 30px solid rgba(183, 76, 76, 0.35);
+    ;
+}
+
+.viem-project {
+    height: 55.7px;
+    width: 152.8px;
+    background: rgba(192, 105, 77, 0.47);
+    border-radius: 7.52941px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    width: 450px;
+    display: flex;
+    justify-content: end;
+}
+
+.viem-project-text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27.1059px;
+    line-height: 41px;
+    letter-spacing: 0.245em;
+    color: #FFFFFF;
+}
+
+.fixing {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 582px;
+    justify-content: center;
+    margin-left: 50px;
+}
+.fixing-special{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 582px;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 50px;
+}
+.project-decription-container {
+    display: flex;
+    align-items: center;
+    justify-content: first baseline;
+}
+
+.project-description {
+    left: 49.14%;
+    right: 0%;
+    top: 46.8%;
+    bottom: 10.51%;
+
+    font-weight: 400;
+    font-size: 13.5529px;
+    line-height: 20px;
+    letter-spacing: 0.245em;
+
+    color: #000000;
+    margin-top: 30px;
+}
+
+.project-name {
+    width: 420px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 27.1059px;
+    line-height: 41px;
+    letter-spacing: 0.245em;
+    color: #000000;
+}

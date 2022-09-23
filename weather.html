@@ -70,6 +70,9 @@
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=0a9b1d70e2d449a7fcadd8c7ceaaade5`
             );
             const info = await show1.json();
+            var now = new Date(0)
+            console.log(new Intl.DateTimeFormat('en-US').format(now));
+            console.log(new Intl.DateTimeFormat('mo-MO').format(now));
             const temp = info.main.temp;
             console.log(info)
             const weather = info.weather[0].main;
