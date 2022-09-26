@@ -1,89 +1,222 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.10.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.10.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-functions.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-storage.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-analytics.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Global Weather</title>
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+    <div class="container">
+        <input id="city" type="text" placeholder="Search" value="" style="outline: none; border: none;">
+        <!-- <div id="city"></div> -->
+        <div style="display: flex; justify-content: space-between; width: 1200px;">
+            <div id="temp"></div>
+            <div id="tempStatus"></div>
+        </div>
+        <div>
+            <div id="weather"></div>
+            <div id="weatherStatus"></div>
+        </div>
+        <div>
+            <div id="sky"></div>
+            <div id="skyStatus"></div>
+        </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <!-- <button onclick="show()" style="width:100px; height: 30px;">Get Weather</button> -->
+    </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: black;
         }
-      });
+
+        .container {
+            margin-top: 120px;
+        }
+
+        #temp {
+            width: 200px;
+            font-size: 40px;
+            color: cadetblue;
+        }
+
+        #city {
+            color: rgb(173, 25, 55);
+        }
+
+        #weather {
+            color: rgb(211, 146, 157);
+        }
+
+        #sky {
+            color: rgb(53, 138, 141);
+        }
+
+        * {
+            font-family: Impa ct, Haettenschweiler, sans-serif;
+            font-size: 40px;
+            margin: 0%;
+        }
+    </style>
+    <script>
+
+        document.getElementById("city").addEventListener("keydown", (element) => {
+            if (element.key == "Enter") {
+                let inputValue = document.getElementById("city").value;
+                show(inputValue);
+            }
+        });
+        const show = async (city) => {
+            const show1 = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=0a9b1d70e2d449a7fcadd8c7ceaaade5`
+            );
+            const info = await show1.json();
+            var now = new Date(0)
+            console.log(new Intl.DateTimeFormat('en-US').format(now));
+            console.log(new Intl.DateTimeFormat('mo-MO').format(now));
+            const temp = info.main.temp;
+            console.log(info)
+            const weather = info.weather[0].main;
+            const sky = info.weather[0].description;
+            document.getElementById("weather").innerHTML = `Weather : ${weather}`;
+            document.getElementById("temp").innerHTML = `${temp}C`;
+            document.getElementById("sky").innerHTML = `Sky : ${sky}`;
+            const tempStatus = document.createElement("p");
+            document.getElementById("tempStatus").appendChild(tempStatus);
+
+
+            const frozen = new Image(200, 100); frozen.src = "frozen-jonnhy.gif";
+
+            const cool = new Image(200, 100); cool.src = "cool-day-pixel.gif";
+
+            const brokenClouds = new Image(200, 100); brokenClouds.src = "broken-clouds.jpeg";
+
+            const cloudy = new Image(200, 170); cloudy.src = "cloudy-weather.gif"
+
+            const fewClouds = new Image(200, 100); fewClouds.src = "few-clouds.gif"
+
+            const scatteredClouds = new Image(200, 100); scatteredClouds.src = "scatteredClouds.gif"
+
+            const clear = new Image(200, 100); clear.src = "clear-sky-weather.jpeg"
+
+            const goodWeather = new Image(200, 100); goodWeather.src = "good-weather.gif"
+
+            const warm = new Image(200, 100); warm.src = "warm-weather.gif"
+
+            const mist = new Image(200, 100); mist.src = "mist.gif"
+
+            const skyMist = new Image(200, 100); skyMist.src = "sky-mist.gif"
+
+            const overcast = new Image(200, 100); overcast.src = "overcastCloud.gif"
+
+            const hot = new Image(200, 100); hot.src = "hot.png"
+
+            const rain = new Image(200, 100); rain.src = "cool-day.gif"
+            const lightRain = new Image(200, 100); lightRain.src = "light-rain.gif"
+
+            // const goodWeather = new Image(200, 100); goodWeather.src = "good-weather.gif"
+
+            if (temp < -30) {
+                tempStatus.innerHTML = "So Cold";
+                document.getElementById("tempStatus").style.color = "darkblue";
+                document.getElementById("temp").style.color = "darkblue";
+                document.getElementById("tempStatus").appendChild(frozen);
+
+            }
+            if (temp < 0) {
+                tempStatus.innerHTML = "Very Cold";
+                document.getElementById("tempStatus").style.color = "darkblue";
+                document.getElementById("temp").style.color = "darkblue";
+                document.getElementById("tempStatus").appendChild(frozen);
+            }
+            if (temp < 10) {
+                tempStatus.innerHTML = "Cold";
+                document.getElementById("tempStatus").style.color = "darkblue";
+                document.getElementById("temp").style.color = "darkblue";
+                document.getElementById("tempStatus").appendChild(frozen);
+            }
+            if (temp > 10 && temp <= 20) {
+                tempStatus.innerHTML = "Cool";
+                document.getElementById("tempStatus").style.color = "blue";
+                document.getElementById("temp").style.color = "blue";
+                document.getElementById("tempStatus").appendChild(cool);
+            }
+            if (temp >= 20 && temp < 25) {
+                tempStatus.innerHTML = "Warm";
+                document.getElementById("tempStatus").style.color = "yellow";
+                document.getElementById("temp").style.color = "yellow";
+                document.getElementById("tempStatus").appendChild(warm);
+            }
+            if (temp >= 25 && temp < 30) {
+                tempStatus.innerHTML = "Kinda Hot";
+                document.getElementById("tempStatus").style.color = "yellow";
+                document.getElementById("temp").style.color = "yellow";
+                document.getElementById("tempStatus").appendChild(hot);
+            }
+            if (temp >= 30 & temp < 37) {
+                tempStatus.innerHTML = "Hot";
+                document.getElementById("tempStatus").style.color = "red";
+                document.getElementById("temp").style.color = "red";
+                document.getElementById("tempStatus").appendChild(hot);
+                document.body.style.background = "url('burining-skeleton.gif')";
+                document.body.style.backgroundSize = "2200px 1000px"
+            }
+            if (temp > 37 & temp < 48) {
+                tempStatus.innerHTML = "So Hot";
+                document.getElementById("tempStatus").style.color = "red";
+                document.getElementById("temp").style.color = "red";
+                document.getElementById("tempStatus").appendChild(cool);
+            }
+            if (temp == 50) {
+                tempStatus.innerHTML = "Extremely Hot";
+                document.getElementById("tempStatus").style.color = "red";
+                document.getElementById("temp").style.color = "red";
+                document.getElementById("tempStatus").appendChild(cool);
+            }
+            if (weather == 'Clouds') {
+                document.getElementById("weatherStatus").appendChild(cloudy);
+            }
+            if (weather == 'Clear') {
+                document.getElementById("weatherStatus").appendChild(goodWeather);
+            }
+            if (weather == 'Mist') {
+                document.getElementById("weatherStatus").appendChild(mist);
+            }
+            if (weather == 'Rain') {
+                document.getElementById("weatherStatus").appendChild(rain);
+            }
+            if (temp == 'Warm') {
+                document.getElementById("tempStatus").appendChild(warm);
+            }
+            if (sky == 'broken clouds') {
+                document.getElementById("skyStatus").appendChild(brokenClouds);
+            }
+            if (sky == 'few clouds') {
+                document.getElementById("skyStatus").appendChild(fewClouds);
+            }
+            if (sky == 'scattered clouds') {
+                document.getElementById("skyStatus").appendChild(scatteredClouds);
+            }
+            if (sky == 'clear sky') {
+                document.getElementById("skyStatus").appendChild(clear);
+            }
+            if (sky == 'mist') {
+                document.getElementById("skyStatus").appendChild(skyMist);
+            }
+            if (sky == 'overcast clouds') {
+                document.getElementById("skyStatus").appendChild(overcast);
+            }
+            if (sky == 'light rain') {
+                document.getElementById("skyStatus").appendChild(lightRain);
+            }
+        }
+
     </script>
-  </body>
+</body>
+
 </html>
