@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,20 +10,23 @@
 
 <body>
     <div class="container">
-        <input id="city" type="text" placeholder="Search" value="" style="outline: none; border: none;">
+        <input id="city" type="text" placeholder="Search">
+        <button id="getWeather" onclick="getWeather()">Search</button>
         <!-- <div id="city"></div> -->
         <div style="display: flex; justify-content: space-between; width: 1200px;">
-            <div id="temp"></div>
-            <div id="tempStatus"></div>
+            <div class="first-section">
+                <div id="temp">Temperature</div>
+                <div id="tempStatus"></div>
+                <div id="weather">Weather</div>
+                <div id="weatherStatus"></div>
+            </div>
+            <div class="sky-container">
+                <div id="sky">Sky condition</div>
+                <div id="skyStatus"></div>
+            </div>
         </div>
-        <div>
-            <div id="weather"></div>
-            <div id="weatherStatus"></div>
-        </div>
-        <div>
-            <div id="sky"></div>
-            <div id="skyStatus"></div>
-        </div>
+
+    </div>
     </div>
     <!-- <button onclick="show()" style="width:100px; height: 30px;">Get Weather</button> -->
     </div>
@@ -33,38 +36,69 @@
             display: flex;
             justify-content: center;
             background-color: black;
+            background-image: url("ulaanbaatar.jpeg");
+            background-size: 2200px;
+        }
+
+        #getWeather {
+            font-size: 20px;
+            width: 80px;
+            height: 35px;
         }
 
         .container {
             margin-top: 120px;
         }
 
+        .first-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 600px;
+            width: 00px;
+        }
+
+        .sky-container {
+            display: flex;
+            flex-direction: column;
+        }
+
         #temp {
             width: 200px;
-            font-size: 40px;
-            color: cadetblue;
+            font-size: 80px;
+            color: whitesmoke;
         }
 
         #city {
-            color: rgb(173, 25, 55);
+            outline: none;
+            border: none;
+            color: grey;
+            height: 30px;
+            font-size: 20px;
+            width: 600px;
         }
 
         #weather {
-            color: rgb(211, 146, 157);
+            color: #5f9ef3;
+            font-size: 40px;
         }
 
         #sky {
-            color: rgb(53, 138, 141);
+            color: #325aae;
+            outline: 2px black;
+            margin-top: 60px;
+            font-size: 40px;
         }
 
         * {
-            font-family: Impa ct, Haettenschweiler, sans-serif;
-            font-size: 40px;
-            margin: 0%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
     <script>
-
+        const getWeather = () => {
+            let inputValue2 = document.getElementById("city").value;
+            show(inputValue2);
+        }
         document.getElementById("city").addEventListener("keydown", (element) => {
             if (element.key == "Enter") {
                 let inputValue = document.getElementById("city").value;
@@ -83,41 +117,41 @@
             console.log(info)
             const weather = info.weather[0].main;
             const sky = info.weather[0].description;
-            document.getElementById("weather").innerHTML = `Weather : ${weather}`;
+            document.getElementById("weather").innerHTML = ` ${weather}`;
             document.getElementById("temp").innerHTML = `${temp}C`;
-            document.getElementById("sky").innerHTML = `Sky : ${sky}`;
+            document.getElementById("sky").innerHTML = `${sky}`;
             const tempStatus = document.createElement("p");
             document.getElementById("tempStatus").appendChild(tempStatus);
 
 
-            const frozen = new Image(200, 100); frozen.src = "frozen-jonnhy.gif";
+            // const frozen = new Image(200, 100); frozen.src = "frozen-jonnhy.gif";
 
-            const cool = new Image(200, 100); cool.src = "cool-day-pixel.gif";
+            // const cool = new Image(200, 100); cool.src = "cool-day-pixel.gif";
 
-            const brokenClouds = new Image(200, 100); brokenClouds.src = "broken-clouds.jpeg";
+            // const brokenClouds = new Image(200, 100); brokenClouds.src = "broken-clouds.jpeg";
 
-            const cloudy = new Image(200, 170); cloudy.src = "cloudy-weather.gif"
+            // const cloudy = new Image(200, 170); cloudy.src = "cloudy-weather.gif"
 
-            const fewClouds = new Image(200, 100); fewClouds.src = "few-clouds.gif"
+            // const fewClouds = new Image(200, 100); fewClouds.src = "few-clouds.gif"
 
-            const scatteredClouds = new Image(200, 100); scatteredClouds.src = "scatteredClouds.gif"
+            // const scatteredClouds = new Image(200, 100); scatteredClouds.src = "scatteredClouds.gif"
 
-            const clear = new Image(200, 100); clear.src = "clear-sky-weather.jpeg"
+            // const clear = new Image(200, 100); clear.src = "clear-sky-weather.jpeg"
 
-            const goodWeather = new Image(200, 100); goodWeather.src = "good-weather.gif"
+            // const goodWeather = new Image(200, 100); goodWeather.src = "good-weather.gif"
 
-            const warm = new Image(200, 100); warm.src = "warm-weather.gif"
+            // const warm = new Image(200, 100); warm.src = "warm-weather.gif"
 
-            const mist = new Image(200, 100); mist.src = "mist.gif"
+            // const mist = new Image(200, 100); mist.src = "mist.gif"
 
-            const skyMist = new Image(200, 100); skyMist.src = "sky-mist.gif"
+            // const skyMist = new Image(200, 100); skyMist.src = "sky-mist.gif"
 
-            const overcast = new Image(200, 100); overcast.src = "overcastCloud.gif"
+            // const overcast = new Image(200, 100); overcast.src = "overcastCloud.gif"
 
-            const hot = new Image(200, 100); hot.src = "hot.png"
+            // const hot = new Image(200, 100); hot.src = "hot.png"
 
-            const rain = new Image(200, 100); rain.src = "cool-day.gif"
-            const lightRain = new Image(200, 100); lightRain.src = "light-rain.gif"
+            // const rain = new Image(200, 100); rain.src = "cool-day.gif"
+            // const lightRain = new Image(200, 100); lightRain.src = "light-rain.gif"
 
             // const goodWeather = new Image(200, 100); goodWeather.src = "good-weather.gif"
 
@@ -125,95 +159,98 @@
                 tempStatus.innerHTML = "So Cold";
                 document.getElementById("tempStatus").style.color = "darkblue";
                 document.getElementById("temp").style.color = "darkblue";
-                document.getElementById("tempStatus").appendChild(frozen);
-
+                // document.getElementById("tempStatus").appendChild(frozen);
+                document.body.style.backgroundImage = "url('frozen-jonnhy.gif')"
+                document.body.style.backgroundSize = "2080px 1100px"
             }
             if (temp < 0) {
                 tempStatus.innerHTML = "Very Cold";
                 document.getElementById("tempStatus").style.color = "darkblue";
                 document.getElementById("temp").style.color = "darkblue";
-                document.getElementById("tempStatus").appendChild(frozen);
+                // document.getElementById("tempStatus").appendChild(frozen);
             }
             if (temp < 10) {
                 tempStatus.innerHTML = "Cold";
                 document.getElementById("tempStatus").style.color = "darkblue";
                 document.getElementById("temp").style.color = "darkblue";
-                document.getElementById("tempStatus").appendChild(frozen);
+                // document.getElementById("tempStatus").appendChild(frozen);
             }
             if (temp > 10 && temp <= 20) {
                 tempStatus.innerHTML = "Cool";
                 document.getElementById("tempStatus").style.color = "blue";
                 document.getElementById("temp").style.color = "blue";
-                document.getElementById("tempStatus").appendChild(cool);
+                // document.getElementById("tempStatus").appendChild(cool);
             }
             if (temp >= 20 && temp < 25) {
                 tempStatus.innerHTML = "Warm";
                 document.getElementById("tempStatus").style.color = "yellow";
                 document.getElementById("temp").style.color = "yellow";
-                document.getElementById("tempStatus").appendChild(warm);
+                // document.getElementById("tempStatus").appendChild(warm);
             }
             if (temp >= 25 && temp < 30) {
                 tempStatus.innerHTML = "Kinda Hot";
                 document.getElementById("tempStatus").style.color = "yellow";
                 document.getElementById("temp").style.color = "yellow";
-                document.getElementById("tempStatus").appendChild(hot);
+                // document.getElementById("tempStatus").appendChild(hot);
             }
             if (temp >= 30 & temp < 37) {
                 tempStatus.innerHTML = "Hot";
                 document.getElementById("tempStatus").style.color = "red";
                 document.getElementById("temp").style.color = "red";
-                document.getElementById("tempStatus").appendChild(hot);
-                document.body.style.background = "url('burining-skeleton.gif')";
+                // document.getElementById("tempStatus").appendChild(hot);
+                document.body.style.backgroundImage = "url('burining-skeleton.gif')";
                 document.body.style.backgroundSize = "2200px 1000px"
             }
             if (temp > 37 & temp < 48) {
                 tempStatus.innerHTML = "So Hot";
                 document.getElementById("tempStatus").style.color = "red";
                 document.getElementById("temp").style.color = "red";
-                document.getElementById("tempStatus").appendChild(cool);
+                // document.getElementById("tempStatus").appendChild(cool);
             }
             if (temp == 50) {
                 tempStatus.innerHTML = "Extremely Hot";
                 document.getElementById("tempStatus").style.color = "red";
                 document.getElementById("temp").style.color = "red";
-                document.getElementById("tempStatus").appendChild(cool);
+                // document.getElementById("tempStatus").appendChild(cool);
             }
             if (weather == 'Clouds') {
-                document.getElementById("weatherStatus").appendChild(cloudy);
+                // document.getElementById("weatherStatus").appendChild(cloudy);
             }
             if (weather == 'Clear') {
-                document.getElementById("weatherStatus").appendChild(goodWeather);
+                // document.getElementById("weatherStatus").appendChild(goodWeather);
             }
             if (weather == 'Mist') {
-                document.getElementById("weatherStatus").appendChild(mist);
+                // document.getElementById("weatherStatus").appendChild(mist);
             }
             if (weather == 'Rain') {
-                document.getElementById("weatherStatus").appendChild(rain);
+                // document.getElementById("weatherStatus").appendChild(rain);
+                document.body.style.backgroundImage = "url(jesus-ballin.gif)"
+                document.body.style.backgroundSize = "2200px 1100px"
             }
             if (temp == 'Warm') {
-                document.getElementById("tempStatus").appendChild(warm);
+                // document.getElementById("tempStatus").appendChild(warm);
             }
-            if (sky == 'broken clouds') {
-                document.getElementById("skyStatus").appendChild(brokenClouds);
-            }
-            if (sky == 'few clouds') {
-                document.getElementById("skyStatus").appendChild(fewClouds);
-            }
-            if (sky == 'scattered clouds') {
-                document.getElementById("skyStatus").appendChild(scatteredClouds);
-            }
-            if (sky == 'clear sky') {
-                document.getElementById("skyStatus").appendChild(clear);
-            }
-            if (sky == 'mist') {
-                document.getElementById("skyStatus").appendChild(skyMist);
-            }
-            if (sky == 'overcast clouds') {
-                document.getElementById("skyStatus").appendChild(overcast);
-            }
-            if (sky == 'light rain') {
-                document.getElementById("skyStatus").appendChild(lightRain);
-            }
+            // if (sky == 'broken clouds') {
+            //     document.getElementById("skyStatus").appendChild(brokenClouds);
+            // }
+            // if (sky == 'few clouds') {
+            //     document.getElementById("skyStatus").appendChild(fewClouds);
+            // }
+            // if (sky == 'scattered clouds') {
+            //     document.getElementById("skyStatus").appendChild(scatteredClouds);
+            // }
+            // if (sky == 'clear sky') {
+            //     document.getElementById("skyStatus").appendChild(clear);
+            // }
+            // if (sky == 'mist') {
+            //     document.getElementById("skyStatus").appendChild(skyMist);
+            // }
+            // if (sky == 'overcast clouds') {
+            //     document.getElementById("skyStatus").appendChild(overcast);
+            // }
+            // if (sky == 'light rain') {
+            //     document.getElementById("skyStatus").appendChild(lightRain);
+            // }
         }
 
     </script>
